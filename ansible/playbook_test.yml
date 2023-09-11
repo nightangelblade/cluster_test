@@ -1,0 +1,22 @@
+---
+- name: Test playbook for Jenkins to execute
+  gather_facts: true
+  hosts: all
+  become: false
+  pre_tasks:
+  - name: Output time playbook is run
+    ansible.builtin.debug:
+        var: ansible_date_time.time
+  tasks:
+  - name: Execute helloworld.sh
+    ansible.builtin.script: ./scripts/helloworld.sh
+
+  - name: Execute test_shell1
+    ansible.builtin.script: ./scripts/test_shell1 Hi HiAgain HiAgainAgain
+
+  - name: Execute test_shell2
+    ansible.builtin.script: ./scripts/test_shell2 hello
+  post_tasks:
+    - name: Output time playbook ends
+      ansible.builtin.debug:
+        var: ansible_date_time.time

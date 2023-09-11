@@ -1,0 +1,12 @@
+[database-single]
+database
+
+[webserver-pair]
+webserver-1
+webserver-2
+
+[loadbalancer-single]
+loadbalancer
+
+[admin]
+control
