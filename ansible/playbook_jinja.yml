@@ -1,0 +1,12 @@
+---
+- name: Test playbook for Jinja
+  gather_facts: true
+  hosts: all
+  become: false
+  tasks:
+  - name: List Ansible Facts
+    ansible.builtin.debug:
+      var: ansible_facts.nodename
+
+  - ansible.builtin.include_role:
+      name: jinja

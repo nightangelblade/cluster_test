@@ -1,0 +1,7 @@
+- name: Create template file
+  ansible.builtin.template:
+    src: ../templates/test.j2
+    dest: /tmp/test.txt
+    owner: vagrant
+    group: vagrant
+    mode: '644'
